@@ -19,7 +19,7 @@ class demoParticle{
 
 		void reset();
 		void update();
-		void draw();
+		void draw(float blobSize, ofColor color, bool blobFill);
 
 		ofPoint pos;
 		ofPoint vel;
@@ -35,8 +35,4 @@ class demoParticle{
 
 		vector <ofPoint> * attractPoints;
     
-
-    
-    int blobAmount;
-    int blobSpeed;
 };

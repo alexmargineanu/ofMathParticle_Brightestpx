@@ -1,8 +1,5 @@
 #include "demoParticle.h"
-#include "ofApp.h"
 
-
-//extern const float blobSize;
 
 //------------------------------------------------------------------
 demoParticle::demoParticle(){
@@ -169,10 +166,10 @@ void demoParticle::update(){
 }
 
 //------------------------------------------------------------------
-void demoParticle::draw(){
+void demoParticle::draw(float blobSize, ofColor color, bool blobFill){
 
-    ofSetColor(160);
-    ofNoFill();
-	ofDrawCircle(pos.x, pos.y, scale * 4.0);
+    ofSetColor(color);
+  if (!blobFill) ofNoFill();
+	ofDrawCircle(pos.x, pos.y, scale * blobSize);
 }
 

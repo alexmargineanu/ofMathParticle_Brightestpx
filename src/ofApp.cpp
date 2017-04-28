@@ -19,14 +19,15 @@ void ofApp::setup(){
     showGui =true;
     gui.setup( "Parameters", "settings.xml" );  //-- gui setup
     gui.add( blobSize.setup( "blobSize", 4.0, 1.0, 20.0 ) );
-    gui.add( blobSpeed.setup( "blobSpeed", 20, 1, 200 ) );
-    gui.add( blobAmount.setup( "blobAmount", 200, 10, 2000 ) );
+    //gui.add( blobSpeed.setup( "blobSpeed", 20, 1, 200 ) );
+    //gui.add( blobAmount.setup( "blobAmount", 200, 10, 2000 ) );
+    gui.add(blobFill.setup( "filled", true));
     gui.add( blobColor.setup( "color",
                                                                 ofColor::black,
                                                                ofColor(0,0,0,0),
                                                               ofColor::white));
     
-    gui.loadFromFile("settings.xml");
+    gui.loadFromFile("settings.xml"); //save presets we like to xml data file
 }
 
 //--------------------------------------------------------------
@@ -98,7 +99,7 @@ void ofApp::draw(){
 	if (showCamera)cam.draw(0, 0);
 
 	for(unsigned int i = 0; i < p.size(); i++){
-		p[i].draw();
+		p[i].draw(blobSize, blobColor, blobFill);
 	}
 
 	ofSetColor(190);
@@ -111,16 +112,16 @@ void ofApp::draw(){
 		}
 	}
 
-	ofSetColor(230);
-	ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
-
-
 	ofNoFill();
     ofDrawCircle(maxBrightnessX, maxBrightnessY, 10);
     ofFill();
     ofDrawCircle(maxBrightnessX, maxBrightnessY, 4);
     
-    if (showGui) gui.draw();
+    if (showGui) {
+        ofSetColor(230);
+        ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
+        gui.draw();
+    }
 }
 
 //--------------------------------------------------------------

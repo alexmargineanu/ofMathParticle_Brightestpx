@@ -4,7 +4,6 @@
 #include "demoParticle.h"
 #include "ofxGui.h"
 
-extern const float blobSize;
 
 class ofApp : public ofBaseApp{
 
@@ -47,6 +46,7 @@ class ofApp : public ofBaseApp{
     ofxIntSlider blobAmount;
     ofxIntSlider blobSpeed;
     ofxColorSlider blobColor;
+    ofxToggle blobFill;
     
 
 };
