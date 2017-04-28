@@ -119,7 +119,7 @@ void ofApp::draw(){
     
     if (showGui) {
         ofSetColor(230);
-        ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
+        ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-4 to change mode.\n 'g' to show/hide gui, c' to show hide camera", 10, 20);
         gui.draw();
     }
 }
